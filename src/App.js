@@ -1,10 +1,13 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ClockApp from "./ClockApp";
 
 function App() {
   return (
-    <div className="App">
-      <ClockApp/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ClockApp />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
