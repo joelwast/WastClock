@@ -1,0 +1,408 @@
+/* ClockApp.css - Versión Minimalista Rediseñada */
+:root {
+    --primary-color: #2196f3;
+    --primary-dark: #1976d2;
+    --primary-light: #bbdefb;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+    --light-bg: #ffffff;
+    --light-text: #333333;
+    --dark-bg: #121212;
+    --dark-accent: #1e1e1e;
+    --dark-text: #ffffff;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    transition: var(--transition);
+  }
+  
+  .light-mode {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+  }
+  
+  .dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  
+  .theme-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 100;
+  }
+  
+  .light-mode .theme-toggle-btn {
+    color: #555;
+  }
+  
+  .dark-mode .theme-toggle-btn {
+    color: #ffd54f;
+  }
+  
+  .theme-toggle-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .clock-container {
+    width: 100%;
+    max-width: 800px; /* Aumentado para dar más espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 80vh;
+    transition: var(--transition);
+  }
+  
+  /* Navegación en la parte inferior - más compacta */
+  .navigation-menu {
+    display: flex;
+    justify-content: center; /* Cambiado a center para agrupar más */
+    padding: 15px 0;
+    margin-top: auto;
+    gap: 20px; /* Espacio reducido entre botones */
+  }
+  
+  .nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Reducido */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #757575;
+    transition: var(--transition);
+    padding: 8px 12px; /* Reducido */
+    border-radius: 20px;
+  }
+  
+  .nav-button span {
+    font-size: 12px; /* Reducido */
+  }
+  
+  .dark-mode .nav-button {
+    color: #aaa;
+  }
+  
+  .nav-button.active {
+    color: var(--primary-color);
+  }
+  
+  .dark-mode .nav-button.active {
+    color: var(--primary-light);
+  }
+  
+  /* Modo Reloj - Rediseñado */
+  .clock-mode {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 0;
+    width: 100%;
+  }
+  
+  /* Selector de zona horaria menos prominente */
+  .timezone-selector {
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 10px;
+    opacity: 0.7; /* Menos prominente */
+    transition: var(--transition);
+  }
+  
+  .timezone-selector:hover {
+    opacity: 1;
+  }
+  
+  .timezone-selector select {
+    width: 100%;
+    padding: 8px; /* Reducido */
+    border-radius: var(--border-radius);
+    border: 1px solid #eee;
+    background-color: transparent; /* Cambiado para ser menos prominente */
+    font-size: 12px; /* Reducido */
+    transition: var(--transition);
+  }
+  
+  .dark-mode .timezone-selector select {
+    background-color: rgba(30, 30, 30, 0.8); /* Cambiado para mejorar visibilidad */
+    color: var(--dark-text); /* Asegura que el texto sea blanco */
+    border-color: #555;
+  }
+  
+  /* Corregir el color de las opciones del select en modo oscuro */
+  .dark-mode .timezone-selector select option {
+    background-color: var(--dark-accent);
+    color: var(--dark-text);
+  }
+  
+  .date-display {
+    font-size: 26px;
+    text-align: center;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .dark-mode .date-display {
+    color: #ccc;
+  }
+  
+  /* Reloj más grande */
+  .time-display {
+    font-size: 109px; /* Aumentado */
+    font-weight: 300;
+    text-align: center;
+    color: var(--primary-dark);
+    line-height: 1;
+    margin: 20px 0;
+    width: 80%; /* Asegurar que ocupa al menos el 80% del ancho */
+  }
+  
+  .dark-mode .time-display {
+    color: var(--primary-light);
+  }
+  
+  /* Modo Cronómetro - Rediseñado */
+  .stopwatch-mode {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+  }
+  
+  .stopwatch-display {
+    font-size: 96px; /* Aumentado */
+    font-weight: 300;
+    font-family: monospace;
+    margin-bottom: 40px;
+    color: var(--primary-dark);
+    line-height: 1;
+    width: 80%; /* Asegurar que ocupa al menos el 80% del ancho */
+    text-align: center;
+  }
+  
+  .dark-mode .stopwatch-display {
+    color: var(--primary-light);
+  }
+  
+  /* Botones rediseñados con iconos */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Modo Temporizador - Rediseñado */
+  .timer-mode {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+  }
+  
+  .timer-setup {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .timer-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .timer-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+  }
+  
+  .timer-input-group label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  .dark-mode .timer-input-group label {
+    color: #aaa;
+  }
+  
+  .timer-input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid #eee;
+    text-align: center;
+    font-size: 18px;
+    cursor: text;
+  }
+  
+  .dark-mode .timer-input-group input {
+    background-color: #333;
+    color: white;
+    border-color: #555;
+  }
+  
+  .timer-display {
+    font-size: 96px; /* Aumentado */
+    font-weight: 300;
+    font-family: monospace;
+    margin-bottom: 40px;
+    color: var(--primary-dark);
+    line-height: 1;
+    width: 80%; /* Asegurar que ocupa al menos el 80% del ancho */
+    text-align: center;
+  }
+  
+  .dark-mode .timer-display {
+    color: var(--primary-light);
+  }
+  
+  .timer-ended {
+    color: var(--danger-color) !important;
+  }
+  
+  .timer-running {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Botones rediseñados */
+  .action-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    color: white;
+    box-shadow: var(--shadow);
+  }
+  
+  .action-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .start-btn {
+    background-color: var(--success-color);
+  }
+  
+  .pause-btn {
+    background-color: var(--warning-color);
+  }
+  
+  .reset-btn, .cancel-btn {
+    background-color: var(--danger-color);
+  }
+  
+  .timer-action-btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--success-color);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .timer-action-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .timer-action-btn:hover {
+    opacity: 0.9;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .time-display, .stopwatch-display, .timer-display {
+      font-size: 72px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .theme-toggle-btn {
+      top: 10px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+    }
+    
+    .time-display, .stopwatch-display, .timer-display {
+      font-size: 60px;
+    }
+    
+    .date-display {
+      font-size: 16px;
+    }
+    
+    .button-group {
+      gap: 15px;
+    }
+    
+    .action-btn {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .timer-inputs {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .timer-input-group {
+      width: 100%;
+    }
+  }
